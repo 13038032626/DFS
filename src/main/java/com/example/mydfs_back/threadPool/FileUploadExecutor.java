@@ -1,4 +1,4 @@
-package com.example.mydfs_storage.threadPool;
+package com.example.mydfs_back.threadPool;
 
 import org.springframework.stereotype.Component;
 
@@ -6,10 +6,11 @@ import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.RejectedExecutionHandler;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
+@Component
+public class FileUploadExecutor extends ThreadPoolExecutor {
 
-public class fileAlterExecutor extends ThreadPoolExecutor {
 
-    public fileAlterExecutor(int corePoolSize, int maximumPoolSize, long keepAliveTime, TimeUnit unit, BlockingQueue<Runnable> workQueue, RejectedExecutionHandler handler) {
+    public FileUploadExecutor(int corePoolSize, int maximumPoolSize, long keepAliveTime, TimeUnit unit, BlockingQueue<Runnable> workQueue, RejectedExecutionHandler handler) {
         super(corePoolSize, maximumPoolSize, keepAliveTime, unit, workQueue, handler);
     }
 }

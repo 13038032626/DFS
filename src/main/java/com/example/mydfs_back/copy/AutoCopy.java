@@ -1,6 +1,5 @@
-package com.example.mydfs_storage.copy;
+package com.example.mydfs_back.copy;
 
-import com.example.mydfs_storage.threadPool.fileCopyExecutor;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
@@ -12,13 +11,11 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
 import java.io.IOException;
-import java.util.Map;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 @Component
-public class autoCopy {
+public class AutoCopy {
 
     @Value("son1.ip")
     static String son1IP;
@@ -31,7 +28,7 @@ public class autoCopy {
     static Integer son2Port;
 
     @Autowired
-    fileCopyExecutor fileCopyExecutor;
+    com.example.mydfs_storage.threadPool.FileCopyExecutor fileCopyExecutor;
 
     public ConcurrentLinkedQueue<MultipartFile> queue = new ConcurrentLinkedQueue<>();  //queue保存二元信息，value是文件的数据类型MIME
 

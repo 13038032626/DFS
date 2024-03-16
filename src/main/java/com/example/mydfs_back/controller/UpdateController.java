@@ -1,9 +1,9 @@
-package com.example.mydfs_storage.controller;
+package com.example.mydfs_back.controller;
 
-import com.example.mydfs_storage.spaceController.FileSelf;
-import com.example.mydfs_storage.threadPool.fileAlterExecutor;
-import com.example.mydfs_storage.utils.LockUtils;
-import com.example.mydfs_storage.utils.fileUtils;
+import com.example.mydfs_back.spaceController.FileSelf;
+import com.example.mydfs_back.threadPool.FileAlterExecutor;
+import com.example.mydfs_back.utils.FileUtils;
+import com.example.mydfs_back.utils.LockUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RestController;
@@ -33,16 +33,18 @@ public class UpdateController {
      */
 
     @Autowired
-    fileUtils fileUtils;
+    FileUtils fileUtils;
 
     @Autowired
     FileSelf fileSelf;
 
     @Autowired
     UploadController oneController;
+    @Autowired
+    UploadSliceController uploadOneSliceController;
 
     @Autowired
-    fileAlterExecutor fileAlterExecutor;
+    FileAlterExecutor fileAlterExecutor;
 
     @Autowired
     LockUtils lockUtils;
@@ -95,7 +97,7 @@ public class UpdateController {
                                 fileUtils.setNextSliceIndex(fileSelf.getStartIndex(), fileSelf.getStartIndex());
                                 fileSelf.addFile();
                                 byte[] byteArray = outputStream1.toByteArray();
-                                oneController.uploadOneSlice(new ByteArrayInputStream(byteArray));
+//                                oneController.uploadOneSlice(new ByteArrayInputStream(byteArray));
                                 outputStream1.reset();
                             } else {    // 最终出口
                                 inputStream.read(helpBytes);
@@ -104,7 +106,7 @@ public class UpdateController {
                                 fileUtils.setNextSliceIndex(fileSelf.getStartIndex(), nextSliceIndex);
                                 fileSelf.addFile();
                                 byte[] byteArray = outputStream1.toByteArray();
-                                oneController.uploadOneSlice(new ByteArrayInputStream(byteArray));
+//                                oneController.uploadOneSlice(new ByteArrayInputStream(byteArray));
                                 outputStream1.reset();
                                 addedStartIndex.set(fileSelf.getStartIndex());
                             }

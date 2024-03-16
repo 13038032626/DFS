@@ -1,4 +1,4 @@
-package com.example.mydfs_storage.utils;
+package com.example.mydfs_back.utils;
 
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
@@ -6,7 +6,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.*;
 
 @Component
-public class fileUtils {
+public class FileUtils {
     public Integer getNextSliceLocation(MultipartFile file) throws IOException {
         InputStream inputStream = file.getInputStream();
         byte[] locationByte = new byte[1];

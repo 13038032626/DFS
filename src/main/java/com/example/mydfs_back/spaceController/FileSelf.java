@@ -1,6 +1,6 @@
-package com.example.mydfs_storage.spaceController;
+package com.example.mydfs_back.spaceController;
 
-import com.example.mydfs_storage.utils.JDBCUtils;
+import com.example.mydfs_back.utils.JDBCUtils;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

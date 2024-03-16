@@ -1,4 +1,4 @@
-package com.example.mydfs_storage.virtualize;
+package com.example.mydfs_back.virtualize;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

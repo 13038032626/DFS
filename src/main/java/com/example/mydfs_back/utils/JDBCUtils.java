@@ -1,4 +1,4 @@
-package com.example.mydfs_storage.utils;
+package com.example.mydfs_back.utils;
 
 import org.springframework.stereotype.Component;
 

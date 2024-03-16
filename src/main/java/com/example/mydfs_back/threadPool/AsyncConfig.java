@@ -1,5 +1,6 @@
-package com.example.mydfs_storage.threadPool;
+package com.example.mydfs_back.threadPool;
 
+import com.example.mydfs_back.threadPool.FileAlterExecutor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableAsync;
@@ -10,8 +11,8 @@ import java.util.concurrent.*;
 @EnableAsync
 public class AsyncConfig {
     @Bean
-    public fileUploadExecutor fileUploadExecutor(){
-        fileUploadExecutor executor = new fileUploadExecutor(
+    public FileUploadExecutor fileUploadExecutor(){
+        FileUploadExecutor executor = new FileUploadExecutor(
                 10,
                 20,
                 50,
@@ -22,9 +23,9 @@ public class AsyncConfig {
         return executor;
     }
     @Bean
-    public fileCopyExecutor fileCopyExecutor(){
+    public com.example.mydfs_storage.threadPool.FileCopyExecutor fileCopyExecutor(){
 
-        fileCopyExecutor executor = new fileCopyExecutor(
+        com.example.mydfs_storage.threadPool.FileCopyExecutor executor = new com.example.mydfs_storage.threadPool.FileCopyExecutor(
                 10,
                 20,
                 50,
@@ -36,9 +37,9 @@ public class AsyncConfig {
 
     }
     @Bean
-    public fileAlterExecutor fileAlterExecutor(){
+    public FileAlterExecutor fileAlterExecutor(){
 
-        fileAlterExecutor executor = new fileAlterExecutor(
+        FileAlterExecutor executor = new FileAlterExecutor(
                 10,
                 20,
                 50,

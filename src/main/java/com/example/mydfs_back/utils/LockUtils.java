@@ -1,6 +1,6 @@
-package com.example.mydfs_storage.utils;
+package com.example.mydfs_back.utils;
 
-import com.example.mydfs_storage.spaceController.FileSelf;
+import com.example.mydfs_back.spaceController.FileSelf;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
